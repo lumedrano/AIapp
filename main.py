@@ -11,11 +11,20 @@ from transformers import GPT2Tokenizer, GPT2LMHeadModel, pipeline
 # st.text_input("Enter Prompt: ")
 
 
-# Load the text generation pipeline
-generator = pipeline('text-generation', model='gpt2')
 
-# Generate text
-text = generator('Hello, how are you?', max_length=50)[0]['generated_text']
+# Define an event listener that updates the cursor position
+# def update_cursor_position():
+#     st.session_state.cursor_position = st.get_last_cursor_position()
 
-# Display the generated text on Streamlit
-st.markdown(text)
+# # Create a text input field and add the event listener
+# text_input = st.text_input('Type something here:', '', on_change=update_cursor_position)
+
+# # Display the text input and the current cursor position
+# st.write(f'You typed: {text_input}, Cursor position: {st.session_state.cursor_position}')
+
+
+# Create a text input field
+text_input = st.text_input('Type something here:', '')
+
+# Display the text input and the current cursor position
+st.write(f'You typed: {text_input}, Cursor position: {st.session_state.cursor_position}')
