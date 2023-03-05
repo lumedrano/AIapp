@@ -18,4 +18,4 @@ generator = pipeline('text-generation', model='gpt2')
 text = generator('Hello, how are you?', max_length=50)[0]['generated_text']
 
 # Display the generated text on Streamlit
-st.write(text)
+st.markdown(text)
