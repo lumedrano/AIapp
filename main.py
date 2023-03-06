@@ -1,8 +1,8 @@
 import streamlit as st
-from transformers import GPT2Tokenizer, GPT2LMHeadModel, pipeline
+from transformers import GPT2Tokenizer, TFGPT2LMHeadModel, pipeline
 
 tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
-model = GPT2LMHeadModel.from_pretrained('gpt2')
+model = TFGPT2LMHeadModel.from_pretrained('gpt2')
 
 
 st.image("https://imageio.forbes.com/specials-images/imageserve/5ee2978b434cc00006720d80/0x0.jpg?format=jpg&width=1200")
