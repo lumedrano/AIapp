@@ -1,5 +1,5 @@
 import streamlit as st
-from transformers import GPT2Tokenizer, GPT2LMHeadModel, pipeline
+from transformers import GPT2Tokenizer, GPT2LMHeadModel
 
 
 tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
