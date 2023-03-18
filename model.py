@@ -10,8 +10,8 @@ model = GPT2LMHeadModel.from_pretrained('gpt2')
 bert_tokenizer = BertTokenizer.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad')
 bert_model = BertForQuestionAnswering.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad')
 
-st.image("https://imageio.forbes.com/specials-images/imageserve/5ee2978b434cc00006720d80/0x0.jpg?format=jpg&width=1200")
-st.title("AI Model - Luigi & Alex")
+# st.image("https://imageio.forbes.com/specials-images/imageserve/5ee2978b434cc00006720d80/0x0.jpg?format=jpg&width=1200")
+# st.title("AI Model - Luigi & Alex")
 
 def generated_text(user_input):
     input_ids = tokenizer.encode(user_input, return_tensors='pt')
@@ -68,23 +68,29 @@ def question_answer(question, text):
 
 
 
-col1, col2 = st.columns([1,3])
+# col1, col2 = st.columns([1,3])
 
-with col1:
-    preset = st.radio("Select one of our presets",
-                      ('Text Generation', 'Q&A'))
+# with col1:
+#     preset = st.radio("Select one of our presets",
+#                       ('Text Generation', 'Q&A'))
     
-with col2:
-    if preset == 'Text Generation':
+# with col2:
+#     if preset == 'Text Generation':
 
-        user_input = st.text_input("Enter Prompt: ")
+#         user_input = st.text_input("Enter Prompt: ")
 
-        if st.button("Send"):
-            st.write(generated_text(user_input))
-    elif preset == 'Q&A':
-        text = st.text_area("Please enter your text: ")
-        question = st.text_input("Please enter your question: ")
+#         if st.button("Send"):
+#             st.write(generated_text(user_input))
+#     elif preset == 'Q&A':
+#         text = st.text_area("Please enter your text: ")
+#         question = st.text_input("Please enter your question: ")
 
-        if st.button('Send'):
-            st.write(question_answer(question, text))
+#         if st.button('Send'):
+#             st.write(question_answer(question, text))
+
+text = input('Enter text: ')
+if text:
+    question = input('Enter question: ')
+    if question:
+        print(question_answer(question, text))
 
