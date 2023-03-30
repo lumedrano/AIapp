@@ -5,14 +5,23 @@ import uvicorn
 app = FastAPI()
 
 
-@app.get("/api/model/gpt2")
-async def root (user_input):
-    response = generated_text(user_input)
+class Response:
+    status: int
+    message: str
+    error: str
+
+@app.get("/health")
+async def health():
+    return "Gucci"
+
+@app.get("/api/model/gpt2/{search}")
+async def root (search):
+    response = generated_text(search)
     return response
 
-@app.get("/api/model/qa")
-async def root (user_input, context):
-    response = question_answer(user_input, context)
+@app.get("/api/model/qa/{search}/{context}")
+async def root (search, context):
+    response = question_answer(search, context)
     return response
 
 if __name__ == "__main__":
