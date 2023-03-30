@@ -16,13 +16,19 @@ async def health():
 
 @app.get("/api/model/gpt2/{search}")
 async def root (search):
-    response = generated_text(search)
-    return response
+    r = Response()
+    r.message = generated_text(search)
+    r.error = []
+    r.status = 200
+    return r
 
 @app.get("/api/model/qa/{search}/{context}")
 async def root (search, context):
-    response = question_answer(search, context)
-    return response
+    r = Response()
+    r.message = question_answer(search, context)
+    r.error = []
+    r.status = 200
+    return r
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
