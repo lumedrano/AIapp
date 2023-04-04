@@ -1,4 +1,3 @@
-import streamlit as st
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
 import torch
 from transformers import BertForQuestionAnswering, BertTokenizer
@@ -10,8 +9,6 @@ model = GPT2LMHeadModel.from_pretrained('gpt2')
 bert_tokenizer = BertTokenizer.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad')
 bert_model = BertForQuestionAnswering.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad')
 
-# st.image("https://imageio.forbes.com/specials-images/imageserve/5ee2978b434cc00006720d80/0x0.jpg?format=jpg&width=1200")
-# st.title("AI Model - Luigi & Alex")
 
 def generated_text(user_input):
     input_ids = tokenizer.encode(user_input, return_tensors='pt')
